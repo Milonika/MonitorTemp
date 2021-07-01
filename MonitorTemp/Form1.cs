@@ -45,33 +45,20 @@ namespace MonitorTemp
 
         private void SaveFile_Click(object sender, EventArgs e)
         {
+            Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "|Bitmap Image|*.bmp|Gif Image|*.gif";
-            saveFileDialog1.Title = "Save an Image File";
-            saveFileDialog1.ShowDialog(); 
-            if (saveFileDialog1.FileName != "")
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                System.IO.FileStream fs =
-                    (System.IO.FileStream)saveFileDialog1.OpenFile();
-                switch (saveFileDialog1.FilterIndex)
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    case 1:
-                        this.SaveFile.Image.Save(fs,
-                          System.Drawing.Imaging.ImageFormat.txt);
-                        break;
-
-                    case 2:
-                        this.SaveFile.Image.Save(fs,
-                          System.Drawing.Imaging.ImageFormat.Bmp);
-                        break;
-
-                    case 3:
-                        this.SaveFile.Image.Save(fs,
-                          System.Drawing.Imaging.ImageFormat.Gif);
-                        break;
+                    // Code to write the stream goes here.
+                    myStream.Close();
                 }
-
-                fs.Close();
             }
         }
     }
