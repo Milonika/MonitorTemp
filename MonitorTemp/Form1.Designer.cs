@@ -104,6 +104,7 @@
             this.MaxTime.Name = "MaxTime";
             this.MaxTime.Size = new System.Drawing.Size(100, 20);
             this.MaxTime.TabIndex = 6;
+            this.MaxTime.TextChanged += new System.EventHandler(this.MaxTime_TextChanged);
             // 
             // MinTime
             // 
@@ -111,6 +112,7 @@
             this.MinTime.Name = "MinTime";
             this.MinTime.Size = new System.Drawing.Size(100, 20);
             this.MinTime.TabIndex = 7;
+            this.MinTime.TextChanged += new System.EventHandler(this.MinTime_TextChanged);
             // 
             // label3
             // 
@@ -179,6 +181,7 @@
             this.typeFish.Name = "typeFish";
             this.typeFish.Size = new System.Drawing.Size(286, 20);
             this.typeFish.TabIndex = 16;
+            this.typeFish.TextChanged += new System.EventHandler(this.typeFish_TextChanged);
             // 
             // Form1
             // 

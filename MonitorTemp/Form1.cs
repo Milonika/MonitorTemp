@@ -19,13 +19,24 @@ namespace MonitorTemp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            var value1 = Convert.ToInt32(textBox1.Text);
-            var value2 = Convert.ToInt32(textBox2.Text);
+            var MaxTemp = Convert.ToInt32(textBox1.Text); //Максимальная темература
+            var MinTemp = Convert.ToInt32(textBox2.Text); //Минимальная температура
+            var FishName = Convert.ToString(typeFish.Text); //Название Рыбы
+            var MaximumTime = Convert.ToInt32(MaxTime.Text); //Максимальное время
+            var MinimumTime = Convert.ToInt32(MinTime.Text); //Минимальное время
 
-            var x = value1 + value2 ;
 
-            Form2 newForm = new Form2();
-            newForm.Show();
+            var x = MaxTemp + MinTemp ;
+
+            //Form2 newForm = new Form2();
+            //newForm.Show();
+
+            int[] TempNumbers = new int[] { 1, 2, 3, 4, 5 };
+            for (int i = 0; i < TempNumbers.Length; i++)
+            {
+                Console.WriteLine(TempNumbers[i] + " ");
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,6 +71,20 @@ namespace MonitorTemp
                     myStream.Close();
                 }
             }
+        }
+        private void typeFish_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaxTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MinTime_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
