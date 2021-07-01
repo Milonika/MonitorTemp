@@ -34,15 +34,16 @@
             this.temperatura = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.MaxTime = new System.Windows.Forms.TextBox();
+            this.MinTime = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Date = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.temp = new System.Windows.Forms.TextBox();
+            this.SaveFile = new System.Windows.Forms.Button();
+            this.typeFish = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -54,11 +55,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(263, 308);
+            this.button1.Location = new System.Drawing.Point(181, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 28);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Рассчитать";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -97,19 +98,19 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Min";
             // 
-            // textBox3
+            // MaxTime
             // 
-            this.textBox3.Location = new System.Drawing.Point(356, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.MaxTime.Location = new System.Drawing.Point(356, 123);
+            this.MaxTime.Name = "MaxTime";
+            this.MaxTime.Size = new System.Drawing.Size(100, 20);
+            this.MaxTime.TabIndex = 6;
             // 
-            // textBox4
+            // MinTime
             // 
-            this.textBox4.Location = new System.Drawing.Point(356, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.MinTime.Location = new System.Drawing.Point(356, 158);
+            this.MinTime.Name = "MinTime";
+            this.MinTime.Size = new System.Drawing.Size(100, 20);
+            this.MinTime.TabIndex = 7;
             // 
             // label3
             // 
@@ -123,25 +124,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(94, 37);
+            this.label4.Location = new System.Drawing.Point(77, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Вид рыбы:";
             // 
-            // textBox5
+            // Date
             // 
-            this.textBox5.Location = new System.Drawing.Point(181, 34);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(275, 20);
-            this.textBox5.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(170, 214);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 11;
+            this.Date.Location = new System.Drawing.Point(170, 214);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(200, 20);
+            this.Date.TabIndex = 11;
+            this.Date.ValueChanged += new System.EventHandler(this.Date_ValueChanged);
             // 
             // label5
             // 
@@ -155,33 +150,51 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(94, 261);
+            this.label6.Location = new System.Drawing.Point(77, 261);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Температура:";
             // 
-            // textBox6
+            // temp
             // 
-            this.textBox6.Location = new System.Drawing.Point(181, 258);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(275, 20);
-            this.textBox6.TabIndex = 14;
+            this.temp.Location = new System.Drawing.Point(170, 258);
+            this.temp.Name = "temp";
+            this.temp.Size = new System.Drawing.Size(275, 20);
+            this.temp.TabIndex = 14;
+            // 
+            // SaveFile
+            // 
+            this.SaveFile.Location = new System.Drawing.Point(333, 313);
+            this.SaveFile.Name = "SaveFile";
+            this.SaveFile.Size = new System.Drawing.Size(93, 28);
+            this.SaveFile.TabIndex = 15;
+            this.SaveFile.Text = "Сохранить";
+            this.SaveFile.UseVisualStyleBackColor = true;
+            this.SaveFile.Click += new System.EventHandler(this.SaveFile_Click);
+            // 
+            // typeFish
+            // 
+            this.typeFish.Location = new System.Drawing.Point(170, 29);
+            this.typeFish.Name = "typeFish";
+            this.typeFish.Size = new System.Drawing.Size(286, 20);
+            this.typeFish.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 364);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.typeFish);
+            this.Controls.Add(this.SaveFile);
+            this.Controls.Add(this.temp);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.Date);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.MinTime);
+            this.Controls.Add(this.MaxTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.temperatura);
@@ -203,15 +216,16 @@
         private System.Windows.Forms.Label temperatura;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox MaxTime;
+        private System.Windows.Forms.TextBox MinTime;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker Date;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox temp;
+        private System.Windows.Forms.Button SaveFile;
+        private System.Windows.Forms.TextBox typeFish;
     }
 }
 
